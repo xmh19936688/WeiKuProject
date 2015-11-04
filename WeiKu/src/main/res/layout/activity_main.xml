@@ -9,37 +9,59 @@
         android:id="@+id/vp_pages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/ll_page_selector"/>
+        android:layout_above="@+id/iv_page_selector_back"/>
+
+    <ImageView
+        android:id="@+id/iv_page_selector_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/page_selector_back"/>
+
+    <ImageView
+        android:id="@+id/iv_page_selector_back_with_circle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/page_selector_back_with_circle"/>
+
 
     <LinearLayout
         android:id="@+id/ll_page_selector"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/vp_pages"
+        android:gravity="center"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/tv_main_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawablePadding="@dimen/textview_drawable_padding"
             android:gravity="center"
-            android:drawableTop="@mipmap/ic_launcher"
+            android:drawableTop="@drawable/main_page_icon"
+            android:textColor="@color/color_textview"
             android:text="@string/page_main"/>
         <TextView
             android:id="@+id/tv_cook_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawablePadding="@dimen/textview_drawable_padding"
             android:gravity="center"
-            android:drawableTop="@mipmap/ic_launcher"
+            android:drawableTop="@drawable/cook_page_icon"
+            android:textColor="@color/color_textview"
             android:text="@string/page_cook"/>
         <TextView
             android:id="@+id/tv_me_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:drawablePadding="@dimen/textview_drawable_padding"
             android:gravity="center"
-            android:drawableTop="@mipmap/ic_launcher"
+            android:drawableTop="@drawable/me_page_icon"
+            android:textColor="@color/color_textview"
             android:text="@string/page_me"/>
     </LinearLayout>
 
