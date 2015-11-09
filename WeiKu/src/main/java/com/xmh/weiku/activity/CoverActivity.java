@@ -26,8 +26,8 @@ public class CoverActivity extends AppCompatActivity {
             public void run() {
                 startActivity(new Intent(CoverActivity.this, MainActivity.class));
                 overridePendingTransition(R.anim.anim_activity_left_in, R.anim.anim_activity_left_out);
+                CoverActivity.this.finish();
             }
         }, ACTIVITY_SWITCH_DELAY_SECOND);
-        finish();
     }
 }
