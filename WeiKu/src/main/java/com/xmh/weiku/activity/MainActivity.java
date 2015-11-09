@@ -18,6 +18,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnPageChange;
 
 public class MainActivity extends BaseActivity {
 
@@ -98,4 +99,21 @@ public class MainActivity extends BaseActivity {
                 break;
         }
     }
+
+    @OnPageChange(value=R.id.vp_pages,callback = OnPageChange.Callback.PAGE_SELECTED)
+    public void onPageSelected(int position){
+                clearPageSelect();
+        switch (position){
+            case MAIN_FRAGMENT_INDEX:
+                tvMainPage.setSelected(true);
+                break;
+            case COOK_FRAGMENT_INDEX:
+                tvCookPage.setSelected(true);
+                break;
+            case ME_FRAGMENT_INDEX:
+                tvMePage.setSelected(true);
+                break;
+        }
+    }
+
 }
