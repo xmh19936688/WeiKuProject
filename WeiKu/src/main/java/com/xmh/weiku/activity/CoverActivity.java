@@ -30,4 +30,9 @@ public class CoverActivity extends AppCompatActivity {
             }
         }, ACTIVITY_SWITCH_DELAY_SECOND);
     }
+
+    @Override
+    public void onBackPressed() {
+        //do nothing
+    }
 }

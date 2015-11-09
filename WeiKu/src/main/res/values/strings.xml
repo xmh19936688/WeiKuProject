@@ -3,4 +3,8 @@
     <string name="page_main">首页</string>
     <string name="page_cook">厨房</string>
     <string name="page_me">我</string>
+    <string name="title_activity_cover">CoverActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>
