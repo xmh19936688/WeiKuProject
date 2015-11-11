@@ -1,0 +1,15 @@
+<resources>
+
+    <!--windowIsFloating：弹出窗浮在上层-->
+    <!--windowBackground：弹出窗背景透明-->
+    <style name="dialog_base_style">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!--windowExitAnimation：弹出窗退出时动画-->
+    <style name="dialog_loading_style" parent="dialog_base_style">
+        <item name="android:windowExitAnimation">@anim/dialog_dismiss_anim</item>
+    </style>
+
+</resources>

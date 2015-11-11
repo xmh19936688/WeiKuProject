@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivity {
     TextView tvMePage;
     //endregion
 
-    //region
+    //region fragments
     FragmentsAdapter mFragmentsAdapter;
     List<Fragment> fragments=new ArrayList<>();
     MainFragment mMainFragment;
