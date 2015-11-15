@@ -62,6 +62,26 @@ public class MainFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        requestData();
+    }
+
+    private void requestData() {
         loadingDialog.show();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismiss();
+                    }
+                });
+            }
+        }).start();
     }
 }
