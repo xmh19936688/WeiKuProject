@@ -1,14 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
-    <TextView
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        android:id="@+id/ptr_sv_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="首页"/>
+        android:background="@color/main_bk_color"
+        ptr:ptrAnimationStyle="flip"
+        ptr:ptrDrawable="@drawable/pull_icon"
+        ptr:ptrHeaderSubTextVisibility="false"
+        ptr:ptrHeaderTextVisibility="false"
+        >
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+
+            <!--顶部banner-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ad_main"
+                />
+
+            <!--五个分类-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/textview_drawable_padding"
+                android:paddingLeft="@dimen/textview_drawable_padding"
+                android:paddingRight="@dimen/textview_drawable_padding"
+                android:orientation="horizontal"
+                android:background="@android:color/white"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="@dimen/textview_drawable_padding"
+                    android:drawableTop="@drawable/huncai_icon"
+                    android:drawablePadding="@dimen/textview_drawable_padding"
+                    android:background="@drawable/textview_clickable_back"
+                    android:text="@string/huncai"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="@dimen/textview_drawable_padding"
+                    android:drawableTop="@drawable/sucai_icon"
+                    android:drawablePadding="@dimen/textview_drawable_padding"
+                    android:background="@drawable/textview_clickable_back"
+                    android:text="@string/sucai"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="@dimen/textview_drawable_padding"
+                    android:drawableTop="@drawable/tanggeng_icon"
+                    android:drawablePadding="@dimen/textview_drawable_padding"
+                    android:background="@drawable/textview_clickable_back"
+                    android:text="@string/tanggeng"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="@dimen/textview_drawable_padding"
+                    android:drawableTop="@drawable/liangcai_icon"
+                    android:drawablePadding="@dimen/textview_drawable_padding"
+                    android:background="@drawable/textview_clickable_back"
+                    android:text="@string/liangcai"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="@dimen/textview_drawable_padding"
+                    android:drawableTop="@drawable/hongbei_icon"
+                    android:drawablePadding="@dimen/textview_drawable_padding"
+                    android:background="@drawable/textview_clickable_back"
+                    android:text="@string/hongbei"
+                    />
+            </LinearLayout>
+
+            <!--前两个推荐-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_drawable_padding"
+                android:layout_marginBottom="@dimen/textview_drawable_padding"
+                android:background="@android:color/white"
+                android:padding="@dimen/textview_drawable_padding"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/textview_drawable_padding"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_green"
+                        android:textSize="@dimen/text_size_51"
+                        android:text="@string/taocan"
+                        android:layout_margin="@dimen/textview_drawable_padding"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/taocan_detail"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/textview_drawable_padding"
+                        android:src="@drawable/taocan_icon"/>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/main_bk_color"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/textview_drawable_padding"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_yellow"
+                        android:textSize="@dimen/text_size_51"
+                        android:text="@string/sifang"
+                        android:layout_margin="@dimen/textview_drawable_padding"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sifang_detail"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/textview_drawable_padding"
+                        android:src="@drawable/sifang_icon"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--后两个推荐-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_drawable_padding"
+                android:layout_marginBottom="@dimen/textview_drawable_padding"
+                android:background="@android:color/white"
+                android:padding="@dimen/textview_drawable_padding"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/textview_drawable_padding"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_green"
+                        android:textSize="@dimen/text_size_51"
+                        android:text="@string/nuantang"
+                        android:layout_margin="@dimen/textview_drawable_padding"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nuantang_detail"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/textview_drawable_padding"
+                        android:src="@drawable/nuantang_icon"/>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/main_bk_color"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/textview_drawable_padding"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_yellow"
+                        android:textSize="@dimen/text_size_51"
+                        android:text="@string/gewei"
+                        android:layout_margin="@dimen/textview_drawable_padding"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gewei_detail"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/textview_drawable_padding"
+                        android:src="@drawable/gewei_icon"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--中部广告位上-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_drawable_padding"
+                android:layout_marginBottom="@dimen/textview_drawable_padding"
+                android:scaleType="fitXY"
+                android:src="@drawable/ad_middle_up"
+                />
+            <!--中部广告位下-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textview_drawable_padding"
+                android:layout_marginBottom="@dimen/textview_drawable_padding"
+                android:scaleType="fitXY"
+                android:src="@drawable/ad_middle_down"
+                />
+
+        </LinearLayout>
+
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+
+
+    <include
+        android:id="@+id/v_net_errors"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/net_error_layout"
+        android:visibility="visible"
+        />
 
 </RelativeLayout>

@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="textview_pressed">#b55f19</color>
     <color name="textview_normal">#a64c4c4c</color>
+    <color name="main_bk_color">#b3b3b3</color>
+    <color name="text_green">#2fc32f</color>
+    <color name="text_yellow">#f5ab2c</color>
+
+    <drawable name="clicked_back_color">#0090ff</drawable>
+    <drawable name="transparent_color">@android:color/transparent</drawable>
 </resources>

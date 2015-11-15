@@ -8,4 +8,17 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="loading">加载中</string>
+    <string name="huncai">荤菜</string>
+    <string name="sucai">素菜</string>
+    <string name="tanggeng">汤羹</string>
+    <string name="liangcai">凉菜</string>
+    <string name="hongbei">烘焙</string>
+    <string name="taocan">精选套餐</string>
+    <string name="taocan_detail">抗霾清肺养生餐</string>
+    <string name="sifang">品质私房菜</string>
+    <string name="sifang_detail">变身星级大厨</string>
+    <string name="nuantang">今日暖汤</string>
+    <string name="nuantang_detail">幸福感倍增</string>
+    <string name="gewei">就差这个味</string>
+    <string name="gewei_detail">下一站-北京</string>
 </resources>

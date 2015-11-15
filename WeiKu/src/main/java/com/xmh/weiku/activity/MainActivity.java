@@ -40,11 +40,11 @@ public class MainActivity extends BaseActivity {
     //endregion
 
     //region fragments
-    FragmentsAdapter mFragmentsAdapter;
-    List<Fragment> fragments=new ArrayList<>();
-    MainFragment mMainFragment;
-    CookFragment mCookFragment;
-    MeFragment mMeFragment;
+    private FragmentsAdapter mFragmentsAdapter;
+    private List<Fragment> fragments=new ArrayList<>();
+    private MainFragment mMainFragment;
+    private CookFragment mCookFragment;
+    private MeFragment mMeFragment;
     //endregion
 
     @Override

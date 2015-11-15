@@ -9,10 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 import com.xmh.weiku.R;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by mengh on 2015/10/28 028.
@@ -21,6 +27,9 @@ public class MainFragment extends Fragment {
 
     //region view
     private View mRootView;
+    @Bind(R.id.v_net_errors)View vNetError;
+    @Bind(R.id.ptr_sv_main)PullToRefreshScrollView svMain;
+    @Bind(R.id.ll_content)LinearLayout llConent;
     //endregion
 
     //region window
@@ -37,11 +46,33 @@ public class MainFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initData();
+        initView();
     }
 
-    private void initData() {
+    @OnClick(R.id.v_net_errors)
+    public void reLoadData(View v){
+        loadData();
+    }
+
+    private void initView() {
         initLoadingDialog();
+        svMain.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ScrollView>() {
+            @Override
+            public void onRefresh(PullToRefreshBase<ScrollView> refreshView) {
+                refreshView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadData();
+                    }
+                }, 1000);
+            }
+        });
+    }
+
+    private void loadData() {
+        svMain.onRefreshComplete();
+        vNetError.setVisibility(View.GONE);
+        llConent.setVisibility(View.VISIBLE);
     }
 
     private void initLoadingDialog() {

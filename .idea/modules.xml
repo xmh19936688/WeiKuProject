@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/PullToRefreshLibrary/PullToRefreshLibrary.iml" filepath="$PROJECT_DIR$/PullToRefreshLibrary/PullToRefreshLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/WeiKu/WeiKu.iml" filepath="$PROJECT_DIR$/WeiKu/WeiKu.iml" />
       <module fileurl="file://$PROJECT_DIR$/WeiKuProject.iml" filepath="$PROJECT_DIR$/WeiKuProject.iml" />
     </modules>
