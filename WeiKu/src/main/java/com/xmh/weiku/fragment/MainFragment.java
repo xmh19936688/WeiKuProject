@@ -5,12 +5,15 @@ import android.content.DialogInterface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
@@ -30,6 +33,7 @@ public class MainFragment extends Fragment {
     @Bind(R.id.v_net_errors)View vNetError;
     @Bind(R.id.ptr_sv_main)PullToRefreshScrollView svMain;
     @Bind(R.id.ll_content)LinearLayout llConent;
+    @Bind(R.id.tv_search)TextView tvSearchBar;
     //endregion
 
     //region window
@@ -56,6 +60,7 @@ public class MainFragment extends Fragment {
 
     private void initView() {
         initLoadingDialog();
+        tvSearchBar.getBackground().setAlpha(0);
         svMain.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ScrollView>() {
             @Override
             public void onRefresh(PullToRefreshBase<ScrollView> refreshView) {
@@ -65,6 +70,37 @@ public class MainFragment extends Fragment {
                         loadData();
                     }
                 }, 1000);
+            }
+        });
+        svMain.getRefreshableView().setOnTouchListener(new OnScrollViewTouchListener());
+        svMain.setOnPullEventListener(new PullToRefreshBase.OnPullEventListener<ScrollView>() {
+            @Override
+            public void onPullEvent(PullToRefreshBase<ScrollView> refreshView, PullToRefreshBase.State state, PullToRefreshBase.Mode direction) {
+                switch (state){
+                    case PULL_TO_REFRESH:
+                        tvSearchBar.setVisibility(View.GONE);
+                        Log.e("state_xmh","PULL_TO_REFRESH");
+                        break;
+                    case RESET:
+                        tvSearchBar.setVisibility(View.VISIBLE);
+                        Log.e("state_xmh","RESET");
+                        break;
+                    case RELEASE_TO_REFRESH:
+                        Log.e("state_xmh","RELEASE_TO_REFRESH");
+                        break;
+                    case REFRESHING:
+                        Log.e("state_xmh","REFRESHING");
+                        break;
+                    case MANUAL_REFRESHING:
+                        Log.e("state_xmh","MANUAL_REFRESHING");
+                        break;
+                    case OVERSCROLLING:
+                        Log.e("state_xmh","OVERSCROLLING");
+                        tvSearchBar.setVisibility(View.VISIBLE);
+                        tvSearchBar.getBackground().setAlpha(0);
+                        break;
+                }
+
             }
         });
     }
@@ -114,5 +150,17 @@ public class MainFragment extends Fragment {
                 });
             }
         }).start();
+    }
+
+    private class OnScrollViewTouchListener implements View.OnTouchListener{
+        @Override
+        public boolean onTouch(View view, MotionEvent event) {
+            Log.e("scroll-xmh", view.getScrollY() + "");
+            int alpha=view.getScrollY();
+            if(view.getScrollY()>255)alpha=255;
+            if(view.getScrollY()<0) alpha=0;
+            tvSearchBar.getBackground().setAlpha(alpha);
+            return false;
+        }
     }
 }

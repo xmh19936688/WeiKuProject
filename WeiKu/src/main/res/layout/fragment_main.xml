@@ -272,6 +272,9 @@
 
     </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
 
+    <include
+        layout="@layout/layout_search_bar"
+        />
 
     <include
         android:id="@+id/v_net_errors"
